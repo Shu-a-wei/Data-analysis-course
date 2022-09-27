@@ -41,3 +41,32 @@ gp.mean
 
 iris %>% filter(Species == "setosa",Sepal.Width > 3.8)
 iris  %>% group_by(Species) %>% summarise(Mean.Length = mean(Sepal.Length))
+
+
+install.packages("tidyr")
+library(tidyr)
+TW_corals<-read.table("data/tw_corals.txt", header=T, sep="\t", dec=".")
+getwd()
+TW_corals<-read.table("data/tw_corals.txt", header=T, sep="\t", dec=".")
+TW_corals<-read.table("TW_corals.txt", header=T, sep="\t", dec=".")
+TW_corals
+TW_corals_long <- TW_corals %>% pivot_longer(Southern_TW:Northern_Is, names_to = "Region", values_to = "Richness")
+TW_corals_long
+TW_corals_wide <- pivot_wider(TW_corals_long, names_from = Region, values_from = Richness) 
+TW_corals_wide
+income<-read.table('metoo.txt',header=T, sep="\t", dec=".", na.strings = "n/a")
+income
+income_long<-income%>% pivot_longer(cols=-state, names_to = c("gender", "work"), names_sep = "_", values_to = "income")
+income_long
+income_long %>% pivot_wider(names_from = c(gender,work), 
+                            values_from = income,
+                            names_sep = ".")
+
+income_long_var <- income %>%  pivot_longer(cols = -1, 
+                                            names_to = "var1", 
+                                            values_to = "income")
+income_long_var
+income_sep <- income_long_var %>%  separate(col = var1, 
+                                            sep = "_", 
+                                            into = c("gender", "work"))
+income_sep
