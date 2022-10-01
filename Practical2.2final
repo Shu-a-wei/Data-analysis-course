@@ -1,0 +1,82 @@
+---
+title: "Practical2.2"
+author: "Shu-Li Dubbink"
+date: "2022-10-01"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+## Step 1
+
+Open the data set and look at the data
+
+```{r}
+rm(list=ls())
+rairuoho<-read.table("rairuoho.txt", header=T, sep="\t", dec=".")
+```
+
+```{r}
+data <- rairuoho
+knitr::kable(data,
+ caption = "rairuoho")
+```
+
+## Step 2
+
+Replacing "nutrient" with "enriched"
+
+```{r}
+rairuoho[9][rairuoho[9]=="nutrient"] <-"enriched"
+```
+
+```{r}
+data <- rairuoho
+knitr::kable(data,
+ caption = "rairuoho enriched")
+```
+
+## Step 3
+
+Pivoting the columns day3 to day8
+
+```{r}
+Rairuoho_long <- rairuoho%>% pivot_longer(day3:day8, names_to = "day",
+values_to = "lenght") 
+```
+
+```{r}
+data <- Rairuoho_long
+knitr::kable(data,
+ caption = "rairuoho pivoted")
+```
+
+## Step 4
+
+Merging the columns "spatial1" and "spatial2" into one column named
+"spatial"
+
+```{r}
+rairuoho_spatial<- Rairuoho_long %>% unite("spatial", spatial1:spatial2, sep="_", remove=TRUE, na.rm=FALSE)
+```
+
+```{r}
+data <- rairuoho_spatial
+knitr::kable(data,
+ caption = "rairuoho merged spatial column")
+```
+
+## Step 5
+
+Removing the columns "row" and "column"
+
+```{r}
+rairuoho_removed<- subset(rairuoho_spatial, select=-c(row,column))
+```
+
+```{r}
+data <- rairuoho_removed
+knitr::kable(data,
+ caption = "rairuoho without columns row and column")
+```
