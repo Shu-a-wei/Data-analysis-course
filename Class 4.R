@@ -1,0 +1,16 @@
+#practice 3.1
+rm(list=ls())
+data("iris")
+iris.sel <- subset(iris, select=-c("versicolor")
+typeof(iris)
+attributes(iris)
+iris.sel <- subset(iris$Species, select=-c("versicolor")
+head(iris.sel)   
+iris.sel <- subset(iris$Species, select=c("setosa", "virginica")
+attributes(iris.sel$Species)
+levels(iris.sel$Species)                
+droplevels(iris.sel)
+iris.sel$species<- droplevels(iris.sel$Species)
+iris.sel <- subset(iris$Species, select=-c("versicolor")
+levels(iris.sel$species)                   
+                   
