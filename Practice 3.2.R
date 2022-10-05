@@ -10,3 +10,6 @@ Weightloss_percentage <- c((Bubble$Before_diet-Bubble$After_diet)/Bubble$Before_
 Subject <- Person
 Weight_loss_table <- data.frame (Subject,Weightloss_percentage)
 WEIGHT_LOSS <- list(A=Subject, B=Weightloss_percentage, C=Weight_loss_table)
+#writing a message about how much I enjoy
+message<- c("I do not really like nor dislike data manipulation")
+BUBBLE_DIET <- list(A=Bubble, B=WEIGHT_LOSS, C=message)
