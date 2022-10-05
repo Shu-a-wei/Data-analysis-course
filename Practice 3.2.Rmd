@@ -5,13 +5,9 @@ date: "2022-10-05"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 # Practice 3.2
 
-##Step 1
+##Step 1 
 Clearing the environment and creating the dataframe from the table in R, calling it Bubble
 
 ```{r}
@@ -22,16 +18,18 @@ After_diet <-c(96, 91, 81, 75, 118)
 Bubble  <- data.frame(Person, Before_diet, After_diet)
 ```
 
-##Step 2
-creating the components of WEIGHT_LOSS
+##Step 2 
+Creating the components of WEIGHT_LOSS
+
 ```{r}
 Weightloss_percentage <- c((Bubble$Before_diet-Bubble$After_diet)/Bubble$Before_diet*100)
 Subject <- Person
 Weight_loss_table <- data.frame (Subject,Weightloss_percentage)
 ```
 
-##Step 3
+##Step 3 
 Add message
+
 ```{r}
 message<- c("I do not really like nor dislike data manipulation")
 ```
@@ -43,4 +41,3 @@ Make the list BUBBLE_DIET
 BUBBLE_DIET <- list(A=Bubble, B=WEIGHT_LOSS, C=message)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
