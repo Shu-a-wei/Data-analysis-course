@@ -19,12 +19,13 @@ Bubble  <- data.frame(Person, Before_diet, After_diet)
 ```
 
 ##Step 2 
-Creating the components of WEIGHT_LOSS
+Creating the components of WEIGHT_LOSS and then creating the list WEIGHT_LOSS
 
 ```{r}
 Weightloss_percentage <- c((Bubble$Before_diet-Bubble$After_diet)/Bubble$Before_diet*100)
 Subject <- Person
 Weight_loss_table <- data.frame (Subject,Weightloss_percentage)
+WEIGHT_LOSS <- list(A=Subject, B=Weightloss_percentage, C=Weight_loss_table)
 ```
 
 ##Step 3 
