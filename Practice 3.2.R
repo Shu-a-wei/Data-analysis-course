@@ -9,3 +9,4 @@ str(Bubble)
 Weightloss_percentage <- c((Bubble$Before_diet-Bubble$After_diet)/Bubble$Before_diet*100)
 Subject <- Person
 Weight_loss_table <- data.frame (Subject,Weightloss_percentage)
+WEIGHT_LOSS <- list(A=Subject, B=Weightloss_percentage, C=Weight_loss_table)
